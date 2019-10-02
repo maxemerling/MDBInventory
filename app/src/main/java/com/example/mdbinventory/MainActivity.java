@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         createAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                checkFields();
                 if (!DataActivity.isEmpty(email) && !DataActivity.isEmpty(password)) {
                     dataIntent.putExtra("email", email.getText().toString());
                     createAccount(email.getText().toString(), password.getText().toString());
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                checkFields();
                 if (!DataActivity.isEmpty(email) && !DataActivity.isEmpty(password)) {
                     dataIntent.putExtra("email", email.getText().toString());
                     signIn(email.getText().toString(), password.getText().toString());
@@ -125,5 +129,13 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    private void checkFields() {
+        if (email.getText().toString().isEmpty()) {
+            email.setError("Must enter an email");
+        }
 
+        if (password.getText().toString().isEmpty()) {
+            password.setError("Must enter a password");
+        }
+    }
 }

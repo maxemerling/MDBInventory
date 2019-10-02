@@ -28,9 +28,10 @@
     <string name="date_0">Date: 0</string>
     <string name="supplier_0">Supplier: 0</string>
     <string name="description_0">Description: 0</string>
-    <string name="supplier">SUPPLIER</string>
+    <string name="supplier">Supplier</string>
     <string name="todo">TODO</string>
     <string name="back">BACK</string>
     <string name="email">kanyes@mdb.dev</string>
     <string name="password">password</string>
+    <string name="mdb_inventory">MDB INVENTORY</string>
 </resources>
